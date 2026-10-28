@@ -44,6 +44,7 @@ In the order of the course.
 | BUILD: backend tools and an MCP server | `mcp_server.py` | `claude mcp add shopassist -- python mcp_server.py`, then `claude -p "..." --allowedTools "mcp__shopassist__lookup_order,mcp__shopassist__start_return"` |
 | BUILD: ShopAssist becomes an agentic system | `agent.py` (start: `starting-points/p13_agent.start.py`) | `python agent.py` - a gate before the loop, a hook before every tool, escalation as a tool |
 | Coordinator and subagents in code | `coordinator.py` | `python coordinator.py` - a coordinator calls two specialised agents as tools |
+| Running a batch: `custom_id` and failures | `batch.py` | `python batch.py` - Message Batches API: send four requests, match results by `custom_id`, retry only the failed ones (a batch can take several minutes) |
 | Claude Code hands-on: CLAUDE.md, rules and a skill | `CLAUDE.md`, `.claude/rules/tools.md`, `.claude/skills/order-check/SKILL.md` | `claude -p "Use the order-check skill for order ORD-87654321." --allowedTools "Skill,Bash(python *)"` |
 | Claude Code in CI: `-p` and JSON output | `ci_review.sh`, `review_schema.json` | break a tool convention in `mcp_server.py`, then `sh ci_review.sh` |
 
