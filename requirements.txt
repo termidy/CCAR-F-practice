@@ -1,0 +1,2 @@
+# the same list as shopassist/requirements.txt, so `pip install -r requirements.txt` also works from the repository root
+-r shopassist/requirements.txt

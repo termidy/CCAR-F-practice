@@ -24,6 +24,11 @@ The scripts use the current API: `claude-sonnet-5-5`, `output_config={"effort": 
 `output_config.format`, and the `mcp` package 2.x for the MCP server. If something returns a 400, check the model id and the SDK
 version first (`anthropic>=1.12`).
 
+The scripts were checked again on 16 November 2026 with `anthropic` 2.9, `mcp` 2.3 and Python 3.13. One thing to know when you
+change them: on current models a reply can start with a thinking block, so `response.content[0]` is not always the text.
+`first_request.py` keeps `content[0]` as in the video (it runs with low effort, where the text comes first); if you raise the
+effort, read the text from the last block, `response.content[-1].text`.
+
 ## The lessons
 
 In the order of the course.

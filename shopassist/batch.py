@@ -43,7 +43,8 @@ results = run_batch(MESSAGES)
 failed = {}
 for custom_id, result in results.items():
     if result.type == "succeeded":
-        print(custom_id, "ok:", result.message.content[0].text[:60])
+        # the answer is the last block: with adaptive thinking a thinking block can come first
+        print(custom_id, "ok:", result.message.content[-1].text[:60])
     else:
         print(custom_id, result.type)
         failed[custom_id] = MESSAGES[custom_id]
